@@ -40,7 +40,7 @@ print(y)
 但在 Java 和 C++ 中，创建变量时需要  指定数据类型。
 
 6.查找变量的数据类型
-如果你有一个变量，并且想知道它的数据类型，大多数编程语言都有一个 内置函数可以实现
+如果你有一个变量，并且想知道它的数据类型，大多数编程语言都有一个 内置函数type()可以实现
 例
 将值存储3在名为 的变量中x，并检查它是哪种类型的数据
 x = 3
@@ -55,13 +55,42 @@ public class Main {
 }                         //Java
 
 7.字符串数据类型
-字符串是一串字符。
+一、字符串是一串字符。
 在 Python 和 JavaScript 中，字符串可以  用双引号"Hello"或单引号括起来'Hello'。
 但在 Java 和 C++ 中，字符串必须  用双引号括起来"Hello"，并且它们有单独的 字符数据类型，其中使用单引号'H'。
 message = 'Hello, World!'
 print(message)
 对于字符串，+运算符用于连接两个字符串，将它们合并成一个字符串。
 
+二、字符串长度
+可以使用内置函数或属性len()来查找字符串中的字符数
+txt = "Hello"
+print(len(txt))
+
+三、访问字符
+字符串就像字符数组，因此您可以使用索引[]（从 0 开始）访问单个字符。注意索引的写法变量txt+[索引位]
+txt = "Hello"
+print(txt[1])   # prints 'e'
+
+四、常用字符串操作(字符串函数)              这些函数其实就是各种工具，器
+最常对字符串进行的操作包括：
+转换为大写或小写              txt.upper()   txt.lower()
+检查字符串是否包含另一个字符串 "World" in txt在变量txt里包不包含world，返回真或假
+替换字符串中的文本            txt.replace("World", "Python")把wor替换为py
+txt = "Hello World"
+print(txt.upper())        # HELLO WORLD
+print(txt.lower())        # hello world
+print("World" in txt)     # True
+print(txt.replace("World", "Python"))
+
+
+
+8.无，或空值
+我们给一个变量  赋值为None或null，表示它没有值。
+这就是给变量赋值的方法None，或者null：
+a = None
+print(a)
+print(type(a))
 
 
 
