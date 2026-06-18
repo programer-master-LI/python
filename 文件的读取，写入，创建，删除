@@ -1,0 +1,134 @@
+文件的创建、读取、更新和删除是任何 Web应用程序 的重要组成部分。
+Python 提供了多个函数。主要是open() 搭配print(f.read()),write(),os.remove()
+Python 中处理文件的关键函数是open()函数。
+该open()函数接受两个参数：文件名和 处理方式。
+
+打开文件有四种不同的方法（模式）：
+"r"- 读取 - 默认值。打开一个文件进行读取，如果 文件不存在则报错。
+"a"- 追加 - 打开一个文件进行追加写入，如果文件 不存在则创建文件。
+"w"- 写入 - 打开一个文件进行写入，如果文件 不存在则创建文件。（创建一个新文件有三种方式）
+"x"- 创建 - 创建指定的文件，如果文件 已存在则返回错误。
+此外，您还可以指定文件应以二进制模式还是文本模式处理。
+"t"- 文本 - 默认值。文本模式
+"b"- 二进制 - 二进制模式（例如图像）
+
+一、读取文件内容
+1.要打开文件进行读取，只需指定文件名即可：
+f = open("demofile.txt")
+上面的代码与以下代码相同：
+f = open("demofile.txt", "rt")
+因为"r"读取和 "t"文本都是 默认值，所以不需要指定它们。
+注意：请确保文件存在，否则会出错。
+
+2.打开服务器上的文件
+假设我们有以下文件，它与 Python 位于同一文件夹中：
+demofile.txt
+Hello! Welcome to demofile.txt
+This file is for testing purposes.
+Good Luck!
+要打开文件，请使用内置open()函数。
+该open()函数 返回一个文件对象，该对象包含一个用于 读取文件内容的方法read()：
+f = open("demofile.txt")            打开文件和读取内容是两个操作
+print(f.read())                 open() 搭配print(f.read())
+
+如果文件位于其他位置，则需要指定文件路径，如下所示：
+打开位于其他位置的文件：
+f = open("D:\\myfiles\welcome.txt")
+print(f.read())
+
+3.读完文件自动关闭文件with open
+打开文件时也可以使用with语句：
+with open("demofile.txt") as f:          as f怎么解释？f是定义的变量
+  print(f.read())
+该with语句会自动处理，这样就不用担心关闭文件的问题了。
+刚读出的文件会写到内存了，读完就可以关闭文件了不然会一直占系统资源，释放资源
+
+关闭文件
+使用完毕后务必关闭文件，这是一个好习惯。
+如果您不使用with关闭语句，则必须编写手动关闭语句来关闭文件：
+f = open("demofile.txt")
+print(f.readline())
+f.close()
+在某些情况下，由于缓冲机制，对文件所做的 更改可能需要关闭文件后才会显示。所以用完立刻关文件
+
+只读文件的一部分文字
+默认情况下，read()方法返回 整个文本，您也可以在read()内指定要返回的字符数：
+返回文件的前 5 个字符：
+with open("demofile.txt") as f:
+  print(f.read(5))
+
+读前一行内容
+您可以使用方法readline()返回一行：
+读取文件中的一行：
+with open("demofile.txt") as f:
+  print(f.readline())
+输入readline()两次，即可阅读前两行内容：
+读取文件中的两行：
+with open("demofile.txt") as f:
+  print(f.readline())
+  print(f.readline())
+
+通过遍历文件的每一行，您可以逐行读取整个文件：
+逐行遍历文件：
+with open("demofile.txt") as f:
+  for x in f:
+    print(x)
+
+//二、写入现有文件                    搭配f.write()方法
+要写入现有文件，必须向 open()函数添加参数：
+"a"- 追加 - 会将内容 追加到文件末尾
+"w"- 写入 - 将 覆盖任何现有内容         
+1.打开文件“demofile.txt”，并将内容 追加到该文件中：  （追加到文件末尾）
+with open("demofile.txt", "a") as f:
+  f.write("Now the file has more content!")
+#open and read the file after the appending:
+with open("demofile.txt") as f:
+  print(f.read())
+
+2.覆盖现有内容
+要覆盖文件中的现有内容，请使用w参数：
+打开文件“demofile.txt”并   覆盖其内容：
+with open("demofile.txt", "w") as f:
+  f.write("Woops! I have deleted the content!")
+#open and read the file after the overwriting:
+with open("demofile.txt") as f:
+  print(f.read())
+注意： “w”方法会覆盖整个文件。
+
+//三、创建新文件
+要在 Python 中 创建新文件，请使用open()方法之一，并带有以下参数之一：
+"x"- 创建 - 将创建一个文件，如果文件 已存在则返回错误。
+"a"- 追加 - 如果指定的文件不存在，则会创建该文件。
+"w"- 写入 - 如果指定的文件不存在，则会创建该文件。
+创建一个名为“myfile.txt”的新文件：
+f = open("myfile.txt", "x")
+结果：创建了一个新的空文件。
+注意：如果文件已存在，则会引发错误
+
+//四、删除文件                   (必须先导入操作系统模块os,再搭配os.remove()方法)
+要删除文件，必须导入操作系统模块并运行其 os.remove()函数：
+1.删除文件“demofile.txt”：
+import os
+os.remove("demofile.txt")
+检查文件是否存在：
+2.为避免出错，建议在尝试 删除文件之前先检查该文件 是否存在：
+检查文件是否存在，如果存在则删除：
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+3.删除文件夹                          （删除目录os.rmdir()）
+要删除整个文件夹，请使用以下os.rmdir()方法：
+删除文件夹“myfolder”：
+import os
+os.rmdir("myfolder")
+注意：您只能删除空文件夹。
+
+
+
+
+
+
+
+
