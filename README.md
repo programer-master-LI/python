@@ -129,3 +129,15 @@ age = 21
 if is_student and (age < 18 or age >= 18):
   print("You can borrow a book from the university library")
 
+
+
+
+
+
+
+
+
+
+
+
+
