@@ -1,3 +1,5 @@
+一、
+
 
 
 二、打印输出文本print()
@@ -35,8 +37,54 @@ print(2 * 5)
 print("I am", 35, "years old.")
 在变量和字符串中，您将学习更多关于如何将 文本和变量结合 起来的知识。
 
-三、输入
+三、输入函数input()
+1.Python允许用户输入。这意味着我们可以 向用户征求意见。
+以下示例会要求您输入姓名，当您输入姓名后，姓名会显示在屏幕上：
+征求用户意见：
+print("Enter your name:")
+name = input()    把input()赋值给name   这里已经完成输入了，///输入完需要按回车才执行后续操作//
+print(f"Hello {name}")               打印文本
+Python 在执行到input()函数时会停止，并在 用户给出一些输入后 继续执行。
 
+2.输入的提示词
+在上面的例子中，用户需要在新的一行输入自己的姓名。
+input()函数有一个prompt提示词参数，可以作为一条消息，放在用户 输入内容的前面，///与用户 输入内容显示在同一行///：
+在用户输入框前添加一条消息：
+name = input("Enter your name:")         name=input(  提示词  )
+print(f"Hello {name}")                   ///输入完需要按回车才执行后续操作//
+
+3.多个输入
+您可以添加//任意数量的输入框//，Python 会在///每个输入框处暂停执行，等待用户输入///：
+多种输入方式：
+name = input("Enter your name:")
+print(f"Hello {name}")
+fav1 = input("What is your favorite animal:")
+fav2 = input("What is your favorite color:")
+fav3 = input("What is your favorite number:")
+print(f"Do you want a {fav2} {fav1} with {fav3} legs?")
+
+4.输入数字
+//用户 输入的内容 会被视为字符串//。即使在上面的例子中，你输入的是一个数字，Python 解释器  仍然会将其视为字符串。
+您可以使用以下函数将 //输入转换为数字float()// ：
+要求平方根，必须将 输入值转换为数字：
+x = input("Enter a number:")
+#find the square root of the number:
+y = math.sqrt(float(x))         float(x)输入值转换为数字
+print(f"The square root of {x} is {y}")
+
+5.验证输入
+/验证用户输入的任何内容/都是良好的做法。在上面的例子中，如果用户输入的不是数字，就会发生错误。
+//为避免出错，我们可以测试输入/，/如果输入的不是数字，则向用户  显示“输入错误，请重试”之类的消息//，并允许用户重新输入：
+一直问直到得到号码为止：
+y = True                                     等号=是赋值运算
+while y == True:               双等号==是比较运算符，判断左右两边是否相等，返回布尔值true,flase
+  x = input("Enter a number:")
+  try:
+    x = float(x);
+    y = False
+  except:
+    print("Wrong input, please try again.")
+print("Thank you!")
 
 
 
