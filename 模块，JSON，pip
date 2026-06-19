@@ -1,4 +1,174 @@
+一、模块       （内置数学模块，日期模块）
+什么是模块？   一个打包好函数的文件
+可以将模块视为代码库。包含您希望包含在应用程序中的 /一组函数/ 的文件。
 
+1.创建模块
+要创建模块，只需将所需代码保存到扩展名为 .txt 的文件中即可.py：
+将此代码保存在名为mymodule.py        创建一个可调用的模块
+def greeting(name):
+  print("Hello, " + name)
+
+2.使用模块 库      （ import 模块名）库
+现在我们可以使用刚刚创建的模块，方法是使用以下  import语句：
+导入名为 mymodule 的模块，并调用 greeting 函数：
+import mymodule
+mymodule.greeting("Jonathan")    模块名.函数名
+注意：当使用模块中的函数时，请使用以下语法：模块名.函数名。
+
+3.模块中的变量           person1字典是模块（库）mymodule的变量
+该模块可以包含函数（如前所述），也可以包含 各种类型的 变量（数组、字典、对象等）：
+将此代码保存到 mymodule.py文件中
+person1 = {                保存写好的代码块
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+导入名为 mymodule 的模块，并访问 person1 字典：
+import mymodule
+a = mymodule.person1["age"]    访问 person1 字典mymodule.person1[""] 点号表示法
+print(a)
+
+4.模块命名            模块名.py
+你可以随意命名模块文件，但它必须具有.txt文件扩展名 .py。
+重命名模块
+导入模块时，可以使用 关键字as 创建别名：
+mymodule为called创建  别名mx：
+import mymodule as mx            ( 导入模块时,as 创建别名)
+a = mx.person1["age"]
+print(a)
+
+5.内置模块    platform视窗
+Python 中有几个 内置模块，您可以随时导入它们。
+导入并使用该platform模块：
+import platform
+x = platform.system()
+print(x)
+
+6.///使用 dir() 函数列出模块中的所有函数名（或变量名）///
+模块中有一个 内置函数可以 列出所有函数名（或变量名）。该dir()函数如下：
+列出平台模块中  所有已定义的名称：
+import platform
+x = dir(platform)           列出模块中的所有函数名
+print(x)
+注意：该dir()函数可用于所有 模块，包括////您自己创建的模块///。
+
+7.从模块导入          (from 模块 import 字典 ) 减少资源占用，运行时间
+您可以使用关键字from选择  仅导入模块中的部分内容。
+该模块mymodule包含一个函数和一个字典：
+def greeting(name):
+  print("Hello, " + name)
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+/////仅从模块中导入 person1 字典////：
+from mymodule import person1         仅从模块中导入 person1 字典  (from 模块 import 字典 ) 
+print (person1["age"])  使用模块中的元素person1 而不是 mymodule.person1["age"]                   
+使用from导入时，引用模块中的 元素时不要使用 模块名称。例如：person1["age"]，而不是 mymodule.person1["age"]
+                                                           元素                   模块名称
+8.日期模块Datetime              导入import datetime
+Python 中的/日期本身并不是一个 数据类型/，但是可以导入一个名为/datetimedate 的模块/来 处理/日期对象/。
+导入日期时间模块并显示当前日期：
+import datetime
+x = datetime.datetime.now()           构造一个对象  ///函数只有赋值给变量才能使用////
+print(x)
+
+//日期输出     print(x.year)
+执行上述示例中的代码后，结果将为：
+2026-06-19 17:53:33.343963
+    日期包含年、月、日、时、分、秒和微秒。
+该datetime模块提供了  许多方法来  返回有关日期对象的信息。
+以下是一些例子，你将在本章后面了解更多相关内容：
+返回年份和星期几名称：
+import datetime                         双datetime.datetime.now()函数
+x = datetime.datetime.now()
+print(x.year)                    年份x.year
+print(x.strftime("%A"))         星期x.strftime("%A")
+
+//创建日期对象
+要创建日期，我们可以 使用模块datetime()的 datetime类（构造函数）。
+该datetime()类需要   三个参数来创建日期：年、月、日。
+创建日期对象：                    默认类，所以不用被定义def
+import datetime
+x = datetime.datetime(2020, 5, 17)       //创建日期对象为x
+print(x)
+该datetime()类还接受时间和时区（小时、分钟、秒、微秒、tzone）参数，但它们是可选的，默认值为0，（None时区）。
+
+//strftime() 方法
+该datetime对象具有将日期对象格式化为可读字符串的方法。
+该方法名为strftime()，接受一个参数， format用于指定返回字符串的格式：
+显示月份名称：
+import datetime
+x = datetime.datetime(2018, 6, 1)
+print(x.strftime("%B"))
+
+/所有规范格式代码的参考：
+Directive 	Description	   Example	
+%a	Weekday, short version	Wed	
+%A	Weekday, full version	Wednesday	                周
+%w	Weekday as a number 0-6, 0 is Sunday	3	
+%d	Day of month 01-31	31	
+%b	Month name, short version	Dec	             
+%B	Month name, full version	December	           月份
+%m	Month as a number 01-12	12	
+%y	Year, short version, without century	18	
+%Y	Year, full version	2018	                      年份
+%H	Hour 00-23	17	                                小时
+%I	Hour 00-12	05	
+%p	AM/PM	PM	
+%M	Minute 00-59	41	
+%S	Second 00-59	08	
+%f	Microsecond 000000-999999	548513	
+%z	UTC offset	+0100	
+%Z	Timezone	CST	
+%j	Day number of year 001-366	365	
+%U	Week number of year, Sunday as the first day of week, 00-53	52	
+%W	Week number of year, Monday as the first day of week, 00-53	52	
+%c	Local version of date and time	Mon Dec 31 17:41:00 2018	
+%C	Century	20	
+%x	Local version of date	12/31/18	
+%X	Local version of time	17:41:00	
+%%	A % character	%	
+%G	ISO 8601 year	2018	
+%u	ISO 8601 weekday (1-7)	1	
+%V	ISO 8601 weeknumber (01-53)	01
+
+9.数学
+Python 内置了一系列//数学函数，包括一个功能强大的//数学模块，可以让你对//数字执行数学运算。
+///内置数学函数
+ min()和max()函数可用于查找 可迭代对象中的 最小值或最大值：
+x = min(5, 10, 25)                         min()和max()函数
+y = max(5, 10, 25)
+print(x)
+print(y)
+该abs()函数返回指定数字的绝对值（正值）：      abs()函数
+x = abs(-7.25)
+print(x)
+该函数返回 x 的 y 次方 (x y ) 值。            pow(x, y)
+返回 4 的 3 次方值（等同于 4 * 4 * 4）：
+x = pow(4, 3)
+print(x)
+
+///数学模块  import math
+Python 还有一个名为math的内置模块，它扩展了 数学函数的列表。
+要使用它，必须先  导入该math模块：
+import math
+导入math模块后，就可以开始使用  模块的方法和常量了。
+例如，该math.sqrt()方法返回一个数的平方根：
+import math                 math.sqrt()方法
+x = math.sqrt(64)      
+print(x)
+该math.ceil()方法将一个数字向上取整到最接近的整数，并将math.floor() 另一个数字向下取整到最接近的整数，并返回结果：
+import math
+x = math.ceil(1.4)            math.ceil()方法
+y = math.floor(1.4)           math.floor()方法
+print(x) # returns 2
+print(y) # returns 1
+该math.pi常量返回 PI 的值（3.14...）：
+import math
+x = math.pi                    math.pi常量
+print(x)
 
 
 
