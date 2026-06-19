@@ -1,5 +1,79 @@
 
 
+二、打印输出文本print()
+1.可以使用该print()函数来 显示文本或输出值：
+print("Hello World!")
+可以根据需要多次使用print()该函数。默认情况下，每次调用都会在 新行上打印文本：
+print("Hello World!")
+print("I am learning Python.")
+print("It is awesome!")
+
+2.双引号
+在 Python 中，文本必须用 引号括起来。您可以使用"双引号或'单引号：
+print("This will work!")
+print('This will also work!')
+如果你忘记将文本放在引号内，Python 将会报错：
+
+3.打印多段文本时不换行
+默认情况下，该print()函数以换行符结束。
+如果要在同一行打印多个单词，可以使用end以下参数：
+print("Hello World!", end=" ")            （逗号end=" "）
+print("I will print on the same line.")
+end=" "为了提高可读性，我们在后面加了一个空格。
+
+4.输出数字打印号码            数字不加引号
+您还可以使用print()函数 显示数字：
+与文本不同，我们不会 把数字放在引号里：
+print(3)
+print(358)
+print(50000)
+你也可以在print()函数 内部进行 数学运算：
+print(3 + 3)
+print(2 * 5)
+混合文字和数字
+您可以通过用 逗号分隔，将 文本和数字合并 到一个输出中：
+print("I am", 35, "years old.")
+在变量和字符串中，您将学习更多关于如何将 文本和变量结合 起来的知识。
+
+三、输入
+
+
+
+
+
+
+四、注释
+注释可以用来解释Python代码。注释可以使代码 更易读。
+在测试代​​码时，可以使用  注释来阻止代码执行。
+1.创建注释
+注释以#开头，Python 会忽略它们：
+#This is a comment
+print("Hello, World!")
+2.注释可以放在行尾，Python 会忽略该行的其余部分：
+print("Hello, World!") #This is a comment
+注释不一定是解释代码的文本，它也可以用来 阻止 Python 执行某些代码：
+#print("Hello, World!")
+print("Cheers, Mate!")
+3.多行注释
+Python 实际上并 没有支持多行注释的语法。
+要添加多行注释，您可以为每一行插入一个 #：
+#This is a comment
+#written in
+#more than just one line
+print("Hello, World!")
+或者，虽然不太符合预期，但您可以使用 多行字符串。
+由于 Python 会忽略//未赋值给变量的字符串//，因此你可以在代码中添加 多行字符串（三引号），并将注释放在其中：
+"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+只要字符串 没有被赋值给变量，Python 就会读取字符串代码，但随后会忽略它，这样你就创建了一个多行注释。
+
+
+
+
 
 
 
