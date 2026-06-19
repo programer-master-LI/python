@@ -170,6 +170,156 @@ import math
 x = math.pi                    math.pi常量
 print(x)
 
+二、JSON                  （JSON也是一种模块 库）
+JSON是一种用于///存储和交换数据//的语法。
+JSON 是用///JavaScript对象表示法  编写的文本。
+Python 有一个名为  json的内置包，可用于处理  JSON 数据。
+导入json模块：
+import json
+
+解析JSON - 将 JSON语言 转换为 Python语言     (json.loads()方法)
+如果您有一个///JSON 字符串///，您可以使用该 json.loads()方法对其进行解析。
+结果将是一个Python字典。
+将 JSON 转换为 Python：
+import json
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+# parse x:
+y = json.loads(x)        json.loads()方法将 JSON语言 转换为 Python语言
+# the result is a Python dictionary:
+print(y["age"])
+
+可以将以下类型的 Python 对象转换为 JSON 字符串：
+词典
+列表
+元组
+细绳
+整数
+漂浮
+真的          True
+错误的        False
+没有任何      None
+将 Python 对象转换为 JSON 字符串，并打印其值：
+import json
+print(json.dumps({"name": "John", "age": 30}))
+print(json.dumps(["apple", "bananas"]))
+print(json.dumps(("apple", "bananas")))
+print(json.dumps("hello"))
+print(json.dumps(42))
+print(json.dumps(31.76))
+print(json.dumps(True))
+print(json.dumps(False))
+print(json.dumps(None))
+当您将 Python 对象转换为 JSON 对象时，Python 对象会被转换为等效的 JSON（JavaScript）对象：
+Python	JSON           (语言对应的转换结果)
+dict	Object
+list	Array
+tuple	Array
+str	String
+int	Number
+float	Number
+True	true
+False	false
+None	null
+
+转换包含所有合法数据类型的 Python 对象：
+import json
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+
+print(json.dumps(x))
+格式化结果
+上面的示例打印了一个 JSON 字符串，但是由于没有缩进和换行符，因此不太容易阅读。
+该json.dumps()方法带有参数，以便更轻松地阅读结果：
+使用indent参数定义缩进次数：
+json.dumps(x, indent=4)
+您还可以定义分隔符，默认值为 (", ", ": ")，这意味着使用逗号和空格分隔每个对象，使用冒号和空格分隔键和值：
+使用separators参数可以更改默认分隔符：
+json.dumps(x, indent=4, separators=(". ", " = "))
+
+排序结果
+该json.dumps()方法带有参数，用于对结果中的键进行排序：
+使用该sort_keys参数指定结果是否应排序：
+json.dumps(x, indent=4, sort_keys=True)
+
+三、PIP包
+PIP 是 Python 包管理器，或者你也可以称之为模块管理器。
+如果您使用的是 Python 3.4 或更高版本，则默认情况下已包含 PIP。
+什么是包？
+一个软件包包含了 模块所需的所有文件。
+模块是你可以包含在项目中的 Python 代码库。
+
+检查pip功能是否已安装。
+将命令行导航到 Python 脚本目录，然后输入以下命令：
+检查pip版本：
+C:\Users\Your Name\AppData\Local\Programs\Python\Python36-32\Scripts>pip --version
+安装 PIP
+如果您尚未安装 PIP，可以从此页面下载并安装： https://pypi.org/project/pip/
+
+下载软件包
+打开命令行界面，告诉 PIP 下载你想要的软件包。
+将命令行 导航到 Python 脚本目录，然后输入以下命令：
+下载名为“camelcase”的软件包：
+C:\Users\Your Name\AppData\Local\Programs\Python\Python36-32\Scripts>pip install camelcase
+您已下载并安装了第一个软件包！
+
+软件包安装完成后 导入即可使用。    import camelcase
+将“camelcase”包导入到您的项目中。
+导入并使用“驼峰式”：
+import camelcase
+c = camelcase.CamelCase()
+txt = "hello world"
+print(c.hump(txt))
+查找包裹
+您可以在https://pypi.org/上找到更多软件包。
+
+移除包裹               Uninstalling camelcase-02.1
+使用以下uninstall命令删除软件包：
+卸载名为“camelcase”的软件包：
+C:\Users\Your Name\AppData\Local\Programs\Python\Python36-32\Scripts>pip uninstall camelcase
+PIP 包管理器会要求您确认是否要删除 camelcase 包：
+Uninstalling camelcase-02.1:
+  Would remove:
+    c:\users\Your Name\appdata\local\programs\python\python36-32\lib\site-packages\camelcase-0.2-py3.6.egg-info
+    c:\users\Your Name\appdata\local\programs\python\python36-32\lib\site-packages\camelcase\*
+Proceed (y/n)?
+按下按钮y，包裹就会被取下。
+
+列出已安装的软件包
+使用以下list命令列出系统上  安装的所有软件包：
+列出已安装的软件包：
+C:\Users\Your Name\AppData\Local\Programs\Python\Python36-32\Scripts>pip list
+结果
+Package         Version
+-----------------------
+camelcase       0.2
+mysql-connector 2.1.6
+pip             18.1
+pymongo         3.6.1
+setuptools      39.0.1
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
