@@ -1,6 +1,22 @@
 # python
 PyCharm（Python 专用 IDE）  visual studio
 python语法，项目
+Python 能做什么？
+Python 可用于服务器端创建 Web 应用程序。
+Python 可以 与软件配合使用，创建工作流程。
+Python可以 /连接到数据库系统，也可以读取和修改文件。/
+Python 可用于 处理大数据和执行复杂的数学运算。
+Python 可用于 快速原型开发，也可用于生产就绪型软件开发。
+优点：更少的代码行，最新主要版本是 Python 3
+Python 使用 //换行符来完成命令//，这与其他编程语言通常使用 //分号或括号//不同。
+Python 依靠缩进（使用空格）来 /定义作用域/，例如循环、函数和类的作用域。其他编程语言通常使用 花括号 来实现此目的。
+
+//要查看编​​辑器的 Python 版本，可以在编译器中导入该sys模块来找到它：
+检查编辑器的 Python 版本：
+import sys
+print(sys.version)
+
+
 
 # 1.输入和输出（I/O）
 I/O代表输入和输出。
